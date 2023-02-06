@@ -2,3 +2,4 @@ persistence
 credentials.txt
 autocoin.log
 .venv
+*.sh
