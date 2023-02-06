@@ -26,7 +26,7 @@ sl(0.5)
 if not(os.path.isfile('credentials.txt')):
     print("credentials.txt does not exist. First login detected. Enter your username and password in the console. Complete the Multi-Factor Authentication through the browser.")
     with sync_playwright() as p:
-        browser = p.chromium.launch_persistent_context(user_data_dir, headless=False)
+        browser = p.chromium.launch_persistent_context(user_data_dir, headless=False) # First login in GUI environment, hence headless=False
 
         # get current page
         page = browser.pages[0]
@@ -60,7 +60,7 @@ if not(os.path.isfile('credentials.txt')):
 else:
     print("credentials.txt found. Collecting coins...")
     with sync_playwright() as p:
-        browser = p.chromium.launch_persistent_context(user_data_dir, headless=False)
+        browser = p.chromium.launch_persistent_context(user_data_dir, headless=True)
         page = browser.pages[0]
         page.goto('https://shopee.sg/shopee-coins/', wait_until = 'domcontentloaded')
         sl(5)
