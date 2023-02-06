@@ -1,6 +1,7 @@
 ## SHOPEE COIN SCRIPT
 
 Script referenced from: https://github.com/arffsaad/shopeeautocoin
+
 Modified the script to work with SG.
 
 ### To-do
@@ -12,12 +13,12 @@ Modified the script to work with SG.
 - Python 3.8 or greater (tested on 3.10, but playwright should work fine at 3.8)
 - `pip install pytest-playwright`
 - `playwright install`
-- `playwright install-deps` may need to run this too if it's on a server.
+- `playwright install-deps` may need to run this too when installing on a headless server.
 
 ### Usage
-- Clone Repository
+- Clone Repository.
 - Create an empty folder called "persistence" in the cloned repo.
-- Run autocoin.py with `python autocoin.py` it will launch the first login routine. Follow the prompts to authorize 2FA, and store your session persistently.
+- Run autocoin.py with `python3 autocoin.py` it will launch the first login routine. Follow the prompts to authorize 2FA, and store your session persistently.
 - After completing the steps, schedule the script to run once every day.
   - Windows
     - Open Task scheduler, and create new task.
@@ -29,12 +30,18 @@ Modified the script to work with SG.
     - `0 8 * * * /path/to/python3 /path/to/autocoin.py # example, will run the script at 8AM every day`
     - https://crontab.guru/
 
-- Optional: copy entire folder (with persistence and credentials.txt) to a headless server with SCP (or other tools like Filezilla, winSCP).
-- `scp -r shopeeautocoin user@<ip-of-server>:/home/user/`
+- Optional: copy entire folder (with persistence and credentials.txt) to a headless server with SCP (or other tools like Filezilla, winSCP). `scp -r shopeeautocoin user@<ip-of-server>:/home/user/`
 
 - If you installed the pre-requisites in a Python virtual environment, write a shell script to activate it.
-`#!/bin/bash
+```shell
+#!/bin/bash
 source /home/user/pathToVenv/.venv/bin/activate
-python /home/user/pathToRepo/shopeeautocoin/autocoin.py`
+python /home/user/pathToRepo/shopeeautocoin/autocoin.py
+```
+- Write a shell script to link before adding to crontab.
+```shell
+cd /path/where/script/is/located/
+python3 autocoin.py
+```
 
-Open an issue if you are having any issues/questions, pull request welcomed:)
+Open an issue if you are having any issues/questions/suggestions, pull request welcomed:)
