@@ -66,7 +66,7 @@ else:
         sl(5)
 
         # Get the string of the daily coin button
-        elem = page.locator('xpath=/html/body/div[1]/div/div[2]/div/main/section[1]/div[1]/div/section/div[2]/button').inner_text()
+        elem = page.locator('xpath=/html/body/div[1]/div/div[2]/div/main/section[1]/div[1]/div/section/div[2]/div/button').inner_text()
         # print("Current state of daily coin: ", elem)
 
         def collectCoin():
@@ -83,7 +83,8 @@ else:
 
         # Check if user is logged in
         # if (page.url == 'https://shopee.sg/buyer/login?next=https%3A%2F%2Fshopee.sg%2Fshopee-coins'):
-        if (elem == 'Log in to earn coins'):
+
+        if (elem == 'Log in to earn coins' or 'Log in to start earning coins now'):
             print("Not logged in. Logging in...")
             logger.info("Not logged in. Logging in...")
 
