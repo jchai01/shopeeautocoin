@@ -84,7 +84,7 @@ else:
         # Check if user is logged in
         # if (page.url == 'https://shopee.sg/buyer/login?next=https%3A%2F%2Fshopee.sg%2Fshopee-coins'):
 
-        if (elem == 'Log in to earn coins' or 'Log in to start earning coins now'):
+        if (elem == 'Log in to earn coins' or elem == 'Log in to start earning coins now'):
             print("Not logged in. Logging in...")
             logger.info("Not logged in. Logging in...")
 
